@@ -1,0 +1,20 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Python
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+
+# Flutter generated
+frontend/agrilens_ai/build/
+frontend/agrilens_ai/.dart_tool/
+frontend/agrilens_ai/.flutter-plugins
+frontend/agrilens_ai/.flutter-plugins-dependencies
+
+# OS
+.DS_Store
+Thumbs.db

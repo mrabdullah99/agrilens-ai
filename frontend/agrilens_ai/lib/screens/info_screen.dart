@@ -1,0 +1,221 @@
+import 'package:flutter/material.dart';
+import '../widgets/supported_classes_card.dart';
+
+class InfoScreen extends StatelessWidget {
+  const InfoScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("About AgriLens AI"),
+        centerTitle: true,
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+
+          /// Header
+          Center(
+            child: Column(
+              children: [
+                const CircleAvatar(
+                  radius: 42,
+                  backgroundColor: Colors.green,
+                  child: Icon(
+                    Icons.eco,
+                    color: Colors.white,
+                    size: 42,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  "AgriLens AI",
+                  style: theme.textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  "AI-powered maize leaf nutrient deficiency detection",
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.bodyLarge,
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          _buildCard(
+            context,
+            title: "About",
+            icon: Icons.info_outline,
+            child: const Text(
+              "AgriLens AI is an intelligent mobile application that detects "
+                  "nutrient deficiencies in maize leaves using Deep Learning. "
+                  "Simply capture or upload a maize leaf image, and the app "
+                  "predicts the deficiency, highlights important regions using "
+                  "Grad-CAM Explainable AI, and provides fertilizer recommendations.",
+            ),
+          ),
+
+          _buildCard(
+            context,
+            title: "How It Works",
+            icon: Icons.psychology,
+            child: Column(
+              children: const [
+                ListTile(
+                  leading: Icon(Icons.photo_camera),
+                  title: Text("Capture or upload a maize leaf image"),
+                ),
+                ListTile(
+                  leading: Icon(Icons.smart_toy),
+                  title: Text("AI model analyzes the leaf"),
+                ),
+                ListTile(
+                  leading: Icon(Icons.analytics),
+                  title: Text("Predicts nutrient deficiency"),
+                ),
+                ListTile(
+                  leading: Icon(Icons.visibility),
+                  title: Text("Displays Grad-CAM visual explanation"),
+                ),
+                ListTile(
+                  leading: Icon(Icons.recommend),
+                  title: Text("Provides fertilizer recommendation"),
+                ),
+              ],
+            ),
+          ),
+
+          _buildCard(
+            context,
+            title: "AI Technologies",
+            icon: Icons.memory,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text("• EfficientNetB0 Deep Learning Model"),
+                SizedBox(height: 6),
+                Text("• TensorFlow & Keras"),
+                SizedBox(height: 6),
+                Text("• FastAPI Backend"),
+                SizedBox(height: 6),
+                Text("• Grad-CAM Explainable AI"),
+                SizedBox(height: 6),
+                Text("• Flutter Mobile Application"),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 16),
+
+          Text(
+            "Supported Deficiency Classes",
+            style: theme.textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          const SizedBox(height: 12),
+
+          const SupportedClassesCard(),
+
+          const SizedBox(height: 24),
+
+          _buildCard(
+            context,
+            title: "Tips for Best Results",
+            icon: Icons.lightbulb_outline,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text("• Use a clear image."),
+                SizedBox(height: 6),
+                Text("• Capture one maize leaf at a time."),
+                SizedBox(height: 6),
+                Text("• Ensure good lighting."),
+                SizedBox(height: 6),
+                Text("• Avoid blurry or dark images."),
+                SizedBox(height: 6),
+                Text("• Keep the leaf centered in the frame."),
+              ],
+            ),
+          ),
+
+          _buildCard(
+            context,
+            title: "Disclaimer",
+            icon: Icons.warning_amber_rounded,
+            child: const Text(
+              "Predictions are generated by an AI model and should be used as "
+                  "decision support only. Always consult an agricultural expert "
+                  "before applying fertilizers or making important crop management decisions.",
+            ),
+          ),
+
+          const SizedBox(height: 30),
+
+          Center(
+            child: Text(
+              "Version 1.0.0",
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCard(
+      BuildContext context, {
+        required String title,
+        required IconData icon,
+        required Widget child,
+      }) {
+    return Card(
+      elevation: 3,
+      margin: const EdgeInsets.only(bottom: 18),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+
+            Row(
+              children: [
+                Icon(
+                  icon,
+                  color: Colors.green,
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 14),
+
+            child,
+          ],
+        ),
+      ),
+    );
+  }
+}
