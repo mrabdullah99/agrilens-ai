@@ -1,8 +1,8 @@
 import 'dart:io' show Platform;
 
 /// Set this if testing on a real physical device (your machine's LAN IP).
-const String? kManualApiBaseUrl = "http://192.168.1.4:8000";
-// http:// 192.168.1.7:8000
+const String? kManualApiBaseUrl = "";
+
 String get kApiBaseUrl {
   if (kManualApiBaseUrl != null && kManualApiBaseUrl!.isNotEmpty) {
     return kManualApiBaseUrl!;

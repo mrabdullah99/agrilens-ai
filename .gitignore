@@ -2,6 +2,7 @@
 .idea/
 .vscode/
 *.iml
+.metadata
 
 # Python
 backend/.venv/

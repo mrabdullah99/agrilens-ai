@@ -1,27 +1,3 @@
-// import 'package:flutter/material.dart';
-//
-// class LoadingScreen extends StatelessWidget {
-//   const LoadingScreen({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Scaffold(
-//       body: Center(
-//         child: Column(
-//           mainAxisSize: MainAxisSize.min,
-//           children: [
-//             CircularProgressIndicator(),
-//             SizedBox(height: 16),
-//             Text("Analyzing leaf image..."),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
