@@ -1,16 +1,129 @@
+# RECOMMENDATIONS = {
+#     "Healthy Leaf":
+#         "No nutrient deficiency detected.",
+#     "Nitrogen Deficiency":
+#         "Apply nitrogen fertilizer (e.g., Urea) according to recommended agricultural practices.",
+#     "Phosphorus Deficiency":
+#         "Apply phosphorus fertilizer such as DAP based on soil recommendations.",
+#     "Potassium Deficiency":
+#         "Apply potassium fertilizer such as Muriate of Potash (MOP).",
+#     "Zinc Deficiency":
+#         "Apply Zinc Sulfate after confirming deficiency with local recommendations.",
+#     "Multiple Nutrient Deficiencies":
+#         "Multiple nutrient deficiencies detected. A soil test is recommended before applying fertilizers.",
+# }
+#
+#
+# def get_recommendation(deficiency_label):
+#     return RECOMMENDATIONS[deficiency_label]
+
 RECOMMENDATIONS = {
-    "Healthy Leaf":
-        "No nutrient deficiency detected.",
-    "Nitrogen Deficiency":
-        "Apply nitrogen fertilizer (e.g., Urea) according to recommended agricultural practices.",
-    "Phosphorus Deficiency":
-        "Apply phosphorus fertilizer such as DAP based on soil recommendations.",
-    "Potassium Deficiency":
-        "Apply potassium fertilizer such as Muriate of Potash (MOP).",
-    "Zinc Deficiency":
-        "Apply Zinc Sulfate after confirming deficiency with local recommendations.",
-    "Multiple Nutrient Deficiencies":
-        "Multiple nutrient deficiencies detected. A soil test is recommended before applying fertilizers.",
+    "Healthy Leaf": (
+        "No deficiency detected — the leaf shows normal color and structure.\n\n"
+        "Maintenance tips:\n"
+        "• Continue your current fertilization schedule; don't over-apply nitrogen "
+        "just because the crop looks healthy, as excess N delays maturity and increases lodging risk.\n"
+        "• Re-test soil every 1-2 seasons to catch developing deficiencies before symptoms appear.\n"
+        "• Keep monitoring lower/older leaves specifically, since deficiency symptoms "
+        "usually show there first (mobile nutrients) or on new growth (immobile nutrients)."
+    ),
+    "Nitrogen Deficiency": (
+        "Symptoms: yellowing (chlorosis) starting at the tip of older/lower leaves and moving "
+        "along the midrib in a V-shape, since nitrogen is mobile and the plant pulls it from "
+        "older tissue to feed new growth.\n\n"
+        "Fertilizer options:\n"
+        "• Urea (46-0-0) — most common and cost-effective; apply 100-150 kg/acre split across "
+        "2-3 doses (basal + knee-high + tasseling stages) rather than all at once, since a single "
+        "large dose leaches easily and can burn roots.\n"
+        "• Ammonium Sulfate (21-0-0) — slightly slower release, useful on alkaline soils since it "
+        "also lowers soil pH slightly.\n"
+        "• CAN (Calcium Ammonium Nitrate, 26-0-0) — faster acting, good for a quick correction "
+        "if symptoms are already visible mid-season.\n\n"
+        "Application tips:\n"
+        "• Apply nitrogen close to the root zone and irrigate lightly afterward to help it move "
+        "into the soil rather than volatilizing off the surface.\n"
+        "• Avoid applying right before heavy rain — it washes away and wastes the input.\n"
+        "• If symptoms are severe and time-sensitive, a foliar urea spray (1-2%) gives a faster "
+        "green-up than soil application while the root uptake catches up."
+    ),
+    "Phosphorus Deficiency": (
+        "Symptoms: dark green to purplish leaves (especially on the underside and leaf margins), "
+        "stunted growth, and delayed maturity — common in cold, wet soils or acidic soil where "
+        "phosphorus becomes chemically locked up and unavailable.\n\n"
+        "Fertilizer options:\n"
+        "• DAP (Diammonium Phosphate, 18-46-0) — the standard choice; best applied at planting "
+        "since phosphorus doesn't move well in soil and needs to be near the root zone early.\n"
+        "• SSP (Single Super Phosphate, 0-16-0) — cheaper option, also supplies sulfur and calcium, "
+        "good on sulfur-deficient soils.\n"
+        "• TSP (Triple Super Phosphate, 0-46-0) — higher concentration, useful when transport "
+        "cost per unit of nutrient matters.\n\n"
+        "Application tips:\n"
+        "• Band-place phosphorus fertilizer 2-5 cm below and to the side of the seed rather than "
+        "broadcasting — phosphorus doesn't move through soil, so placement near roots matters "
+        "more than for nitrogen.\n"
+        "• Check and correct soil pH first if it's below 5.5 or above 7.5 — phosphorus becomes "
+        "unavailable at both extremes regardless of how much you apply.\n"
+        "• Mycorrhizal inoculants can improve phosphorus uptake efficiency in low-P soils."
+    ),
+    "Potassium Deficiency": (
+        "Symptoms: yellowing and browning (scorch) along leaf margins and tips of older leaves, "
+        "with the leaf center often staying green; weak stalks and increased lodging are common "
+        "since potassium strengthens cell walls.\n\n"
+        "Fertilizer options:\n"
+        "• MOP (Muriate of Potash, 0-0-60) — cheapest and most widely used potassium source.\n"
+        "• SOP (Sulfate of Potash, 0-0-50) — costs more but avoids the chloride in MOP, better "
+        "choice if soil is already chloride-sensitive or salt-affected.\n"
+        "• Wood ash — a low-cost supplementary source if commercial fertilizer access is limited, "
+        "though nutrient content is inconsistent and it also raises soil pH.\n\n"
+        "Application tips:\n"
+        "• Split into 2 applications — basal + at knee-high stage — since potassium demand peaks "
+        "during grain fill.\n"
+        "• Don't apply potassium and nitrogen in the same band at high concentration — it can "
+        "cause salt injury to germinating seedlings.\n"
+        "• On sandy soils, potassium leaches quickly, so smaller, more frequent applications work "
+        "better than one large dose."
+    ),
+    "Zinc Deficiency": (
+        "Symptoms: broad pale yellow/white bands on either side of the midrib on new leaves "
+        "(interveinal chlorosis), shortened internodes, and delayed silking — very common in "
+        "high-pH, calcareous, or heavily phosphorus-fertilized soils, since excess phosphorus "
+        "interferes with zinc uptake.\n\n"
+        "Fertilizer options:\n"
+        "• Zinc Sulfate (ZnSO4, 33% or 21% Zn) — the standard and most reliable correction; "
+        "soil-applied at 10-25 kg/acre depending on severity.\n"
+        "• Chelated Zinc (Zn-EDTA) — more expensive but more effective as a foliar spray and on "
+        "high-pH soils where regular zinc sulfate gets locked up quickly.\n"
+        "• Zinc-coated urea — a convenient option if you're already applying nitrogen and want "
+        "to correct a mild deficiency without a separate application pass.\n\n"
+        "Application tips:\n"
+        "• A foliar spray (0.5% zinc sulfate solution) gives the fastest visible correction if "
+        "symptoms are already showing mid-season — soil application is slower to take effect.\n"
+        "• Don't over-apply phosphorus alongside zinc correction, since high P further suppresses "
+        "zinc uptake even when zinc is present in the soil.\n"
+        "• Confirm with a soil test if possible — zinc deficiency is easy to confuse visually with "
+        "other stresses, and correcting the wrong nutrient wastes a full season."
+    ),
+    "Multiple Nutrient Deficiencies": (
+        "Multiple deficiency symptoms detected simultaneously — this usually points to an "
+        "underlying soil health problem rather than a single missing nutrient, so a soil test "
+        "is strongly recommended before applying any fertilizer blindly.\n\n"
+        "Likely underlying causes:\n"
+        "• Soil pH imbalance — both very acidic and very alkaline soils lock up multiple nutrients "
+        "at once (phosphorus, zinc, and iron are especially pH-sensitive).\n"
+        "• Poor drainage/waterlogging — root damage from oxygen-starved soil reduces uptake of "
+        "everything, not just one nutrient.\n"
+        "• Depleted soil organic matter — reduces the soil's capacity to hold and release "
+        "multiple nutrients over the season.\n\n"
+        "Practical next steps:\n"
+        "• Get a lab soil test (pH, N-P-K, and micronutrients) rather than guessing — blending "
+        "fertilizers without this risks wasting money or worsening an imbalance.\n"
+        "• A balanced NPK compound fertilizer (e.g. 15-15-15 or a locally recommended blend) plus "
+        "a micronutrient mix is a reasonable stopgap while waiting on test results.\n"
+        "• Add organic matter (compost/farmyard manure) over the season — it improves nutrient "
+        "retention broadly rather than fixing one deficiency at a time.\n"
+        "• Re-check the crop 2-3 weeks after any correction to confirm improvement before "
+        "applying additional fertilizer."
+    ),
 }
 
 

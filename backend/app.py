@@ -1,6 +1,7 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 
 import model_loader
+import leaf_gate
 from predict import run_prediction
 
 app = FastAPI(title="AgriLens-AI")
@@ -9,7 +10,7 @@ app = FastAPI(title="AgriLens-AI")
 @app.on_event("startup")
 def startup_event():
     model_loader.load_model()
-
+    leaf_gate.load_gate_model()
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):

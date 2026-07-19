@@ -6,3 +6,4 @@ numpy
 Pillow
 matplotlib
 python-multipart
+pillow-heif
